@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
  
-body,html,:root {
+body,
+html,
+:root {
   height: 100%;
 } 
 
- #root {
-    @apply flex flex-col justify-between h-full;
+ #root,
+ main {
+    @apply flex flex-col h-full;
   }
 
 @layer base {

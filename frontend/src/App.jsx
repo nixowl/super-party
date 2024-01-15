@@ -9,8 +9,8 @@ function App() {
         Header
       </header>
 
-      <main className="flex-1 bg-red-500 flex items-center justify-center">
-        Content and a button:<br />
+      <main className="flex-1 flex items-center justify-center bg-red-500">
+        <h1 className="text-xl">Content and a button:</h1><br />
         <Button>Test button</Button>
     </main>
 
