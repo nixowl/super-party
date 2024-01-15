@@ -6,6 +6,8 @@ body,
 html,
 :root {
   height: 100%;
+  margin: 0.4rem auto;
+  width: 90%;
 } 
 
  #root,
