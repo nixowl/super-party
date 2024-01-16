@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/main.ts",
+    "dev": "ts-node -r tsconfig-paths/register src/main.ts",
     "db:generate": "drizzle-kit generate:pg",
     "db:push": "drizzle-kit push:pg",
     "format": "prettier --write \"src/**/*.ts\""
@@ -19,6 +18,7 @@
     "nodemon": "^3.0.2",
     "prettier": "^3.2.2",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
@@ -29,7 +29,6 @@
     "pino": "^8.17.2",
     "pino-pretty": "^10.3.1",
     "postgres": "^3.4.3",
-    "uuid": "^9.0.1",
     "zod": "^3.22.4"
   }
 }

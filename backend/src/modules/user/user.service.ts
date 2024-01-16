@@ -1,8 +1,8 @@
-import { RegisterUser } from "../user/user.validator"
-import { db } from "../../utils/db"
-import { TokenInsertType, tokens, TokenType, users, UserType } from "../../utils/schema"
+import { RegisterUser } from "~/modules/user/user.validator"
+import { db } from "~/utils/db"
+import { TokenInsertType, tokens, TokenType, users, UserType } from "~/utils/schema"
 import argon2 from "argon2"
-import { eq, and } from "drizzle-orm"
+import { eq } from "drizzle-orm"
 import { nanoid } from "nanoid"
 
 export async function insertUser(user: RegisterUser): Promise<UserType> {

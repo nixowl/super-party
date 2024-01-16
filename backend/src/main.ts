@@ -1,6 +1,6 @@
 import express from "express"
-import userRoutes from "./modules/user/user.routes"
-import { logger } from "./utils/logger"
+import userRoutes from "~/modules/user/user.routes"
+import { logger } from "~/utils/logger"
 const app = express()
 const port = 3000
 

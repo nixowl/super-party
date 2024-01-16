@@ -1,6 +1,13 @@
 import { nanoid } from "nanoid"
-import { findUserByEmail, findUserById, hashPassword, inserToken, insertUser, verifyPassword } from "./user.service"
-import { LoginUser, RegisterUser, loginUserValidator, registerUserValidator } from "./user.validator"
+import {
+  findUserByEmail,
+  findUserById,
+  hashPassword,
+  inserToken,
+  insertUser,
+  verifyPassword,
+} from "~/modules/user/user.service"
+import { LoginUser, RegisterUser, loginUserValidator, registerUserValidator } from "~/modules/user/user.validator"
 import { Request, Response } from "express"
 
 const day = 24 * 60 * 60 * 1000
