@@ -7,5 +7,4 @@ router.post("/register", registerUserHandler)
 router.post("/login", loginUserHandler)
 router.get("/:id", getUserByIdHandler)
 
-
 export default router
