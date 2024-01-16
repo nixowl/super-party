@@ -26,6 +26,8 @@
     "drizzle-orm": "^0.29.3",
     "express": "^4.18.2",
     "nanoid": "3.3.4",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1",
     "postgres": "^3.4.3",
     "uuid": "^9.0.1",
     "zod": "^3.22.4"
