@@ -15,6 +15,10 @@ html,
     @apply flex flex-col h-full;
   }
 
+  a.active {
+    @apply text-red-400
+  }
+
 @layer base {
   :root {
     --background: 0 0% 100%;
