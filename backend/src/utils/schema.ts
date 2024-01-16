@@ -11,5 +11,14 @@ export const users = pgTable("users", {
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 })
 
+export const tokens = pgTable("tokens", {
+  hash: varchar("hash", { length: 255 }).notNull(),
+  userId: varchar("user_id", { length: 255 }).notNull(),
+  expiry: timestamp("expiry").notNull().defaultNow(),
+  scope : varchar("scope", { length: 255 }).notNull(),
+})
+
 export type UserType = InferSelectModel<typeof users>
 export type UserInsertType = InferInsertModel<typeof users>
+export type TokenInsertType = InferInsertModel<typeof tokens>
+export type TokenType = InferSelectModel<typeof tokens>

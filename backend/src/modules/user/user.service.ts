@@ -1,9 +1,9 @@
 
 import {RegisterUser} from "../user/user.validator"
 import {db} from "../../utils/db"
-import {users,UserType} from "../../utils/schema"
+import {TokenInsertType, tokens, TokenType, users,UserType} from "../../utils/schema"
 import argon2 from "argon2";
-import {eq} from "drizzle-orm"
+import {eq, and} from "drizzle-orm"
 import { nanoid } from "nanoid"
 
 export async function insertUser(user: RegisterUser): Promise<UserType>  {
@@ -41,3 +41,21 @@ export async function hashPassword(password: string): Promise<string> {
 export async function verifyPassword(password: string, hash: string): Promise<boolean> {
     return argon2.verify(hash, password)
 }
+
+export async function inserToken({hash,scope,userId,expiry}: TokenInsertType): Promise<TokenType> {
+    const token = await  db.insert(tokens).values({
+        hash,
+        scope,
+        userId,
+        expiry
+    }).returning()
+
+    return token[0]
+}
+
+export async function findTokenByHash(hash: string): Promise<TokenType | undefined> {
+    const dbTokens = await db.select().from(tokens).where(eq(tokens.hash, hash))
+
+    return dbTokens[0]
+}
+
