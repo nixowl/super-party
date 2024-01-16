@@ -1,7 +1,6 @@
 import { pgTable, timestamp, varchar } from "drizzle-orm/pg-core"
 import { InferSelectModel, InferInsertModel } from "drizzle-orm"
 
-
 export const users = pgTable("users", {
   id: varchar("id", { length: 255 }).primaryKey().notNull(),
   name: varchar("name", { length: 255 }).notNull(),
@@ -15,7 +14,7 @@ export const tokens = pgTable("tokens", {
   hash: varchar("hash", { length: 255 }).notNull(),
   userId: varchar("user_id", { length: 255 }).notNull(),
   expiry: timestamp("expiry").notNull().defaultNow(),
-  scope : varchar("scope", { length: 255 }).notNull(),
+  scope: varchar("scope", { length: 255 }).notNull(),
 })
 
 export type UserType = InferSelectModel<typeof users>
