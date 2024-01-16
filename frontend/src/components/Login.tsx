@@ -7,7 +7,7 @@ interface LoginProps {
     handleLogin: (username: string, password: string) => void;
   }
   
-  const LoginPage: React.FC<LoginProps> = ({ handleLogin }) => {
+  const Login: React.FC<LoginProps> = ({ handleLogin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
   
@@ -31,4 +31,4 @@ interface LoginProps {
     );
   };
   
-  export default LoginPage;
+  export default Login;
