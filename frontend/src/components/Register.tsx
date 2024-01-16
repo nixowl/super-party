@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button"
+import React from "react";
 
 function Register() {
     const navigate = useNavigate();
