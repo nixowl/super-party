@@ -17,6 +17,14 @@ export const tokens = pgTable("tokens", {
   scope: varchar("scope", { length: 255 }).notNull(),
 })
 
+export const posts = pgTable("posts", {
+  id: varchar("id", { length: 255 }).primaryKey().notNull(),
+  content: varchar("body", { length: 255 }).notNull(),
+  userId: varchar("user_id", { length: 255 }).references(() => users.id, {onDelete: "cascade"}),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+})
+
 export type UserType = InferSelectModel<typeof users>
 export type UserInsertType = InferInsertModel<typeof users>
 export type TokenInsertType = InferInsertModel<typeof tokens>
