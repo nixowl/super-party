@@ -9,6 +9,9 @@ import {
 } from "~/modules/user/user.service"
 import { LoginUser, RegisterUser, loginUserValidator, registerUserValidator } from "~/modules/user/user.validator"
 import { Request, Response } from "express"
+import { UserType } from "~/utils/schema"
+
+type RequestWithUser = Request & { user?: UserType }
 
 const day = 24 * 60 * 60 * 1000
 
@@ -86,10 +89,18 @@ export async function loginUserHandler(req: Request, res: Response) {
 export async function getUserByIdHandler(req: Request, res: Response) {
   const { id } = req.params
 
+
   const user = await findUserById(id)
   if (!user) {
     return res.status(404).json({ msg: "User not found" })
   }
+
+  res.status(200).json(user)
+}
+
+export async function getSessionUserHandler(req: RequestWithUser, res: Response) {
+  const { user } = req
+  console.log("session handler")
 
   res.status(200).json(user)
 }
