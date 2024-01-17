@@ -15,6 +15,13 @@
       "when": 1705444879615,
       "tag": "0001_little_hex",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1705529993245,
+      "tag": "0002_minor_dragon_man",
+      "breakpoints": true
     }
   ]
 }
