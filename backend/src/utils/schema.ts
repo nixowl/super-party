@@ -1,5 +1,5 @@
 import { pgTable, timestamp, varchar } from "drizzle-orm/pg-core"
-import { InferSelectModel, InferInsertModel } from "drizzle-orm"
+import { type InferSelectModel, type InferInsertModel } from "drizzle-orm"
 
 export const users = pgTable("users", {
   id: varchar("id", { length: 255 }).primaryKey().notNull(),
