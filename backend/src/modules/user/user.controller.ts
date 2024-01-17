@@ -7,9 +7,9 @@ import {
   insertUser,
   verifyPassword,
 } from "~/modules/user/user.service"
-import { LoginUser, RegisterUser, loginUserValidator, registerUserValidator } from "~/modules/user/user.validator"
-import { Request, Response } from "express"
-import { UserType } from "~/utils/schema"
+import { type LoginUser, type RegisterUser, loginUserValidator, registerUserValidator } from "~/modules/user/user.validator"
+import type { Request, Response } from "express"
+import { type UserType } from "~/utils/schema"
 
 type RequestWithUser = Request & { user?: UserType }
 
@@ -98,7 +98,7 @@ export async function getUserByIdHandler(req: Request, res: Response) {
   res.status(200).json(user)
 }
 
-export async function getSessionUserHandler(req: RequestWithUser, res: Response) {
+export function getSessionUserHandler(req: RequestWithUser, res: Response) {
   const { user } = req
   console.log("session handler")
 

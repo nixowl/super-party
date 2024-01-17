@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from "express"
+import { type Request, type Response, type NextFunction } from "express"
 import { findTokenByHash, findUserById } from "~/modules/user/user.service"
-import { UserType } from "./schema"
+import { type UserType } from "~/utils/schema"
 
 type RequestWithUser = Request & { user?: UserType }
 
@@ -13,7 +13,7 @@ export async function authenticateMiddleware(req: RequestWithUser, res: Response
 
   // client will send a header like this:
   // Bearer 1234567890 (where 1234567890 is the token) (hash in db)
-  const token = authHeader.split(" ")[1] 
+  const token = authHeader.split(" ")[1]
 
   try {
     const foundToken = await findTokenByHash(token)
@@ -24,6 +24,6 @@ export async function authenticateMiddleware(req: RequestWithUser, res: Response
     req.user = await findUserById(foundToken.userId)
     next()
   } catch (error) {
-    return res.sendStatus(403) 
+    return res.sendStatus(403)
   }
 }

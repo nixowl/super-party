@@ -1,6 +1,6 @@
-import { RegisterUser } from "~/modules/user/user.validator"
+import { type RegisterUser } from "~/modules/user/user.validator"
 import { db } from "~/utils/db"
-import { TokenInsertType, tokens, TokenType, users, UserType } from "~/utils/schema"
+import { type TokenInsertType, tokens, type TokenType, users,type  UserType } from "~/utils/schema"
 import argon2 from "argon2"
 import { eq } from "drizzle-orm"
 import { nanoid } from "nanoid"

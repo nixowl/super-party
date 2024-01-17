@@ -4,6 +4,7 @@ import { authenticateMiddleware } from "~/utils/middleware"
 
 const router = express.Router()
 
+
 router.post("/register", registerUserHandler)
 router.post("/login", loginUserHandler)
 router.get("/user/:id", getUserByIdHandler)
